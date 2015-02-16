@@ -33,6 +33,7 @@ group :doc do
 end
 
 gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 
 # Use ActiveModel has_secure_password
