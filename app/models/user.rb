@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :rememberable, :validatable
 
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
+  has_many :accounts, dependent: :destroy
 
   validates :username,
     presence: true,

@@ -1,4 +1,6 @@
 Bookmarks::Application.routes.draw do
+  resources :accounts
+
   resources :bookmarks
   resources :profiles, only: [:index, :show]
 
