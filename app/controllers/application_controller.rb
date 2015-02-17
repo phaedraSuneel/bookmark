@@ -4,16 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :fetch_rss_feeds
-
-
-
+  
   protected
-
-  def fetch_rss_feeds
-    feed = Feedjira::Feed.fetch_and_parse("http://feeds.feedburner.com/TechCrunch/")
-    @entry = feed.entries.first(10)
-  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) do |u|
