@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def fetch_rss_feeds
-    feed = Feedjira::Feed.fetch_and_parse("http://feeds.feedburner.com/TechCrunch/gaming")
+    feed = Feedjira::Feed.fetch_and_parse("http://feeds.feedburner.com/TechCrunch/")
     @entry = feed.entries.first(10)
   end
 
