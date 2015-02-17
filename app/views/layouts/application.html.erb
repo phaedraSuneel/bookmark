@@ -93,8 +93,16 @@
 
         <!-- Content -->
         <div class="row">
-          <div class="large-12 columns">
+          <div class="large-8 columns">
             <%= yield %>
+          </div>
+          <div class="large-4 columns">
+            <h2>Latest News</h2>
+            <ul>
+            <% @entry.each do |feed|%>
+              <li style="list-style:none;"><%= link_to "#{feed.title.sanitize}", "#{feed.url}",:target => "_blank" %></li>
+            <%end%>
+            </ul>
           </div>
         </div>
         <!-- End Content -->

@@ -61,3 +61,5 @@ gem 'simple_form', '~> 3.0.0.rc'
 gem 'kaminari'
 
 gem 'sprockets', '~> 2.8', '<= 2.11.0'
+
+gem 'feedjira'
