@@ -49,7 +49,7 @@ class AccountsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_account
-      @account = Account.where(name: params[:id]).first
+      @account = current_user.accounts.where(id: params[:id]).first
     end
 
     # Only allow a trusted parameter "white list" through.
