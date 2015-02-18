@@ -7,6 +7,8 @@ class ProfilesController < ApplicationController
   def show
     if @user
       @bookmarks = @user.bookmarks.page(params[:page])
+      @followers =  @user.followers
+      @followings = @user.followed_users
     else
       flash[:alert] = 'Profile not found.'
       redirect_to profiles_path

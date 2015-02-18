@@ -1,6 +1,5 @@
-<h2>Bookmarks submitted by <%= link_to @user.username, profile_path(@user) %></h2>
-
-<table style="width: 100%">
+<h2>Bookmarks</h2>
+<table>
   <thead>
     <tr>
       <th>Url</th>
@@ -19,5 +18,37 @@
 </table>
 
 <%= paginate @bookmarks %>
+
+<h2>Followers </h2>
+<table>
+  <thead>
+    <tr>
+      <th>User Name </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @followers.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, profile_path(user) %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
+
+<h2>Following </h2>
+<table>
+  <thead>
+    <tr>
+      <th>User Name </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @followings.each do |user| %>
+      <tr>
+        <td><%= link_to user.username, profile_path(user) %></td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table>
 
 <%= link_to 'Back', profiles_path %>
