@@ -2,7 +2,12 @@ Bookmarks::Application.routes.draw do
   resources :accounts
 
   resources :bookmarks
-  resources :profiles, only: [:index, :show]
+  resources :profiles, only: [:index, :show] do
+    member do 
+      get 'follow'
+      get 'unfollow'
+    end
+  end
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.

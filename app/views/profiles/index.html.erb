@@ -4,7 +4,10 @@
   <thead>
     <tr>
       <th>User</th>
+      <th> Followers </th>
+      <th> Following </th>
       <th># Bookmarks</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -12,7 +15,18 @@
     <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.username, profile_path(user) %></td>
+        <td> <%= user.followers.count %> </td>
+        <td> <%= user.followed_users.count %> </td>
         <td><%= user.bookmarks.count %></td>
+        <td>
+         <% unless current_user.eql?(user) %>
+            <% if current_user.following?(user) %>
+              <%= link_to "Unfollow", unfollow_profile_path(user) %>
+            <% else %>
+              <%= link_to "Follow", follow_profile_path(user) %>
+            <% end %>  
+         <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
