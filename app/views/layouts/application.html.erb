@@ -32,7 +32,7 @@
               <ul class="title-area">
                 <!-- Title Area -->
                 <li class="name">
-                  <h1><a href="/">12devs Bookmarks</a></h1>
+                  <h1><a href="/">Kumar-devs Bookmarks</a></h1>
                 </li>
               </ul>
 
@@ -93,7 +93,9 @@
 
         <!-- Content -->
         <div class="row">
-          <%= yield %>
+          <div class="large-12 columns">
+            <%= yield %>
+          </div>
         </div>
         <!-- End Content -->
 
@@ -102,15 +104,15 @@
           <div class="large-12 columns"><hr />
             <div class="row">
               <div class="large-6 columns">
-                <p>&copy; Copyright no one at all.</p>
+                <p>&copy; Copyright to Kumar-devs.</p>
               </div>
 
               <div class="large-6 columns">
                 <ul class="inline-list right">
-                  <li><a href="#">About</a></li>
-                  <li><a href="#">Twitter</a></li>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Etc..</a></li>
+                  <li><%= link_to("About", about_path) %></li>
+                  <li><%= link_to("Twitter", "http://twitter.com/SuneelCS", :target => "_blank") %></li>
+                  <li><%= link_to("Facebook", "http://facebook.com/skramchandani", :target => "_blank") %></li>
+                  <li><%= link_to("LinkedIn", "http://www.linkedin.com/profile/view?id=136971021", :target => "_blank") %></li>
                 </ul>
               </div>
             </div>
