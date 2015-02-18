@@ -6,6 +6,13 @@ table{
 	width: 100%;
 }
 
+th {
+	text-align: center !important;
+}
+td {
+  text-align: center;
+}
+
 @media screen and (max-width: 640px) {
 	table {
 		overflow-x: auto;
