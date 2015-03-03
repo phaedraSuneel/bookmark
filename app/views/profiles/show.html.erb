@@ -10,7 +10,7 @@
   <tbody>
   <% @bookmarks.each do |bookmark| %>
     <tr>
-    <td><%= link_to bookmark.title, bookmark.url %></td>
+    <td><%= link_to bookmark.title, bookmark.url, :target => "_blank" %></td>
     <td><%= link_to @user.username, profile_path(@user) %></td>
   </tr>
 <% end %>
@@ -18,6 +18,39 @@
 </table>
 
 <%= paginate @bookmarks %>
+<% if current_user.eql?(@user) %>
+  <h2>Accounts</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Account name</th>
+        <th>Email</th>
+        <th>User Name</th>
+        <th>Password</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @accounts.each do |account| %>
+        <tr>
+          <td><%= account.name %></td>
+          <td><%= account.email %></td>
+          <td><%= account.user_name %></td>
+          <td><%= account.password %></td>
+          <td><%= link_to 'Show', account %></td>
+          <td><%= link_to 'Edit', edit_account_path(account) %></td>
+          <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<%= paginate @accounts %>
+<% end %>
+
 
 <h2 class="left">Followers </h2>
 <% unless current_user.eql?(@user) %>
