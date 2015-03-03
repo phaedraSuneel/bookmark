@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
   def show
     if @user
       @bookmarks = @user.bookmarks.page(params[:page])
+      @accounts = @user.accounts.page(params[:page])
       @followers =  @user.followers
       @followings = @user.followed_users
     else
